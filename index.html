@@ -5,16 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Website with Sound</title>
   <style>
-      {
-      margin: 0;
-    }
     body {
-      width: 100%;
-      height: 100vh;
-      background: url(/Subh/photo-1562408590-e32931084e23 (1).jpeg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
     }
 
     #video-background {
@@ -26,52 +21,68 @@
       object-fit: cover;
       z-index: -1;
     }
-    form
-    {
-      width: auto;
-      height: auto;
-      padding: 40px;
-      border-radius: 10px;
-      background: #4A4856B0;
+
+    #button-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
     }
-    #success#070709{
-  color: #000000;
-  margin-top: -20px;
 
-  display: block;
-}
+    .custom-button {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
 
-
- 
+    .custom-button:hover {
+      color: #3498db;
+      border-color: #3498db;
+    }
   </style>
-
-  
+  <style>
+    /* Style for the transparent button */
+    .transparent-button {
+      margin: 10px;
+      background-color: transparent;
+      border: 2px solid #ffffff; /* You can change the border color */
+      color: #ffffff; /* You can change the text color */
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <video id="video-background" autoplay muted loop>
-    <source src="/Subh/videoplayback.webm" type="video/mp4">
+    <source src="videoplayback.webm" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-    <form name="submit-to-google-sheet">
-      <lable><font color=white>Name:</font></lable>
-      <input type="text" name="Name" ><br><br>
-   
-       <lable><font color=white>Unit:</lable>
-       <input type="text" name="Unit"><br><br>
-        <lable><font color=white>Unit type:</lable>
-        <input type="radio" name="Unit type" value="Kg"><lable><font color=white>Kg</lable>
-         <input type="radio" name="Unit type" value="pises"><lable><font color=white>Pises</lable><br><br>
-         <lable><font color=white>Price:</lable>
-         <input type="text" name="Price"><br><br>
-         <lable><font color=white>Date:</lable>
-         <input type="text" name="Date"><br><br>
-         <lable><font color=white>Remark:</lable>
-         <input type="text" name="Remark" Remark><br><br>
-         <center>
-           
-         <button>Submit</button></center><br><br>
-<span id="success"></span>
-    </form>
+
+  <audio autoplay>
+    <source src="/SUBHOM /videoplayback (1) - Copy.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <div id="button-container">
+        
+          <a href="https://subhom1234.github.io/Record-/" class="transparent-button">FEED DATA</a>
+           <a href="https://docs.google.com/spreadsheets/d/1bmyePTUMMiR3bKr1yERN4mBES4BezC6-GfQ6_dNu0dc/edit" class="transparent-button">FIND DATA</a>
+      
+
+    <!-- Add more buttons as needed -->
+  </div>
 
   <script>
     document.querySelectorAll('.custom-button').forEach(function(button) {
@@ -95,22 +106,5 @@
       }
     }
   </script>
-  <script>
-
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzN_s4lGay-izKPZoImMT3y0A86_pofS6BaUTaDSFoGUSPrUA6QlAU43A-Sd1gCVjXM/exec'
-
-  const form = document.forms['submit-to-google-sheet']
-const success = document.getElementById('success')
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {success.innerHTML="Data Successfully Submitted";
-        setTimeout(function(){
-          success.innerHTML="";},5000)
-        form.reset();
-      })
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
 </body>
 </html>
